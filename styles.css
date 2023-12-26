@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+body{
+   background:#f5c63c;
+   color: #24293e;
+}
+ /* navbar */
+ nav{
+    margin: 35px;
+    display: inline;
+ }
+ .logoicon{
+    float: left;
+    font-size:45px;
+    margin-top: 50px;
+    text-shadow: rgba(62,66,66,0.61) 1px 7px 6px;
+    -webkit-animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+ }
+ .navcon{
+    float: right;
+    margin-right: 100px;
+    word-spacing: 35px;
+    padding-top: 80px;
+
+ }
+ .navcon a{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 25px;
+    font-weight:bold;
+}
+.navcon a:hover{
+   color: #3b3636;
+   text-shadow: #24293e 0px 0px 64px;
+
+}
+.toggle-btn{
+   float: inline-end;
+   margin-top: 5px;
+   margin-right:5px ;
+}
+.toggle-label{
+   width: 4rem;
+   height: 2rem;
+   background-color: #24293e;
+   display: inline-block;
+   position: relative;
+   border-radius: 10rem;
+}
+#checkbox{
+   visibility: hidden;
+
+}
+.toggle-ball{
+   width: 1rem;
+   height: 1rem;
+   border-radius: 50%;
+   background-color: #f5c63c;
+   display: inline-block;
+   position: absolute;
+   top: .5rem;
+   left: .5rem;
+   transition: all 0.3s linear;
+}
+#checkbox:checked + .toggle-label .toggle-ball{
+   transform: translateX(2rem);
+   background-color: #fff;
+   color: #f5c63c;
+}
+
+.dark-mode {
+   color: #f5c63c;
+   background-color: #24293e;
+}
+
+@-webkit-keyframes slide-right {
+   0% {
+     -webkit-transform: translateX(0);
+             transform: translateX(0);
+   }
+   100% {
+     -webkit-transform: translateX(100px);
+             transform: translateX(100px);
+   }
+ }
+ @keyframes slide-right {
+   0% {
+     -webkit-transform: translateX(0);
+             transform: translateX(0);
+   }
+   100% {
+     -webkit-transform: translateX(100px);
+             transform: translateX(100px);
+   }
+ }
+ /* main part  */
+main{
+   display:inline-flex;
+}
+.heroimg{
+   float: right;
+   margin-left :300px;
+   padding-right: 70px;
+}
+.heroimg  img{
+   width: 550px;
+   
+
+ }
+ .hero{
+   margin: 100px 0px 0px 80px;
+   font-size: 50px;
+   -webkit-animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+ }
