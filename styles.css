@@ -18,8 +18,7 @@ body{
     font-size:45px;
     margin-top: 50px;
     text-shadow: rgba(62,66,66,0.61) 1px 7px 6px;
-    -webkit-animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    padding-left: 120px;
  }
  .navcon{
     float: right;
@@ -33,16 +32,15 @@ body{
     color: #ffffff;
     font-size: 25px;
     font-weight:bold;
+    transition: all 0.4s;
 }
 .navcon a:hover{
-   color: #3b3636;
-   text-shadow: #24293e 0px 0px 64px;
-
+   color: #152130;
 }
 .toggle-btn{
    float: inline-end;
-   margin-top: 5px;
-   margin-right:5px ;
+   margin-top: 15px;
+   margin-right:10px ;
 }
 .toggle-label{
    width: 4rem;
@@ -54,30 +52,98 @@ body{
 }
 #checkbox{
    visibility: hidden;
-
 }
-.toggle-ball{
-   width: 1rem;
-   height: 1rem;
-   border-radius: 50%;
-   background-color: #f5c63c;
+.switch {
+   font-size: 17px;
+   position: relative;
    display: inline-block;
+   width: 3.5em;
+   height: 2em;
+   transform-style: preserve-3d;
+   perspective: 500px;
+   animation: toggle__animation 3s infinite;
+ }
+ 
+ .switch::before {
+   content: "";
    position: absolute;
-   top: .5rem;
-   left: .5rem;
-   transition: all 0.3s linear;
-}
-#checkbox:checked + .toggle-label .toggle-ball{
-   transform: translateX(2rem);
-   background-color: #fff;
-   color: #f5c63c;
-}
-
-.dark-mode {
+   width: 100%;
+   height: 100%;
+   left: 0;
+   top: 0;
+   filter: blur(20px);
+   z-index: -1;
+   border-radius: 50px;
+   background-color: #d8ff99;
+   background-image: radial-gradient(at 21% 46%, hsla(183,65%,60%,1) 0px, transparent 50%),
+ radial-gradient(at 23% 25%, hsla(359,74%,70%,1) 0px, transparent 50%),
+ radial-gradient(at 20% 1%, hsla(267,83%,75%,1) 0px, transparent 50%),
+ radial-gradient(at 86% 87%, hsla(204,69%,68%,1) 0px, transparent 50%),
+ radial-gradient(at 99% 41%, hsla(171,72%,77%,1) 0px, transparent 50%),
+ radial-gradient(at 55% 24%, hsla(138,60%,62%,1) 0px, transparent 50%);
+ }
+ 
+ /* Hide default HTML checkbox */
+ .switch input {
+   opacity: 0;
+   width: 0;
+   height: 0;
+ }
+ 
+ /* The slider */
+ .slider {
+   position: absolute;
+   cursor: pointer;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background-color: #fdfefedc;
+   transition: .4s;
+   border-radius: 30px;
+ }
+ 
+ .slider:before {
+   position: absolute;
+   content: "";
+   height: 1.4em;
+   width: 1.4em;
+   left: 0.3em;
+   bottom: 0.35em;
+   transition: .4s;
+   border-radius: 50%;
+   box-shadow: rgba(0, 0, 0, 0.17) 0px -10px 10px 0px inset,
+      rgba(0, 0, 0, 0.09) 0px -1px 15px -8px;
+   background-color: #ff99fd;
+   background-image: radial-gradient(at 81% 39%, hsla(327,79%,79%,1) 0px, transparent 50%),
+   radial-gradient(at 11% 72%, hsla(264,64%,79%,1) 0px, transparent 50%),
+   radial-gradient(at 23% 20%, hsla(75,98%,71%,1) 0px, transparent 50%);
+ }
+ 
+ .input__check:checked + .slider {
+   background-color: #17202A;
+ }
+ 
+ .input__check:checked + .slider:before {
+   transform: translateX(1.5em);
+ }
+ 
+ @keyframes toggle__animation {
+   0%, 100% {
+     transform: translateY(-10px) rotateX(15deg) rotateY(-20deg);
+   }
+ 
+   50% {
+     transform: translateY(0px) rotateX(15deg) rotateY(-20deg);
+   }
+ }
+ .dark-mode {
    color: #f5c63c;
    background-color: #24293e;
 }
-
+.dark-mode a:hover{
+   color: #f5c63c;
+}
 @-webkit-keyframes slide-right {
    0% {
      -webkit-transform: translateX(0);
@@ -97,7 +163,7 @@ body{
      -webkit-transform: translateX(100px);
              transform: translateX(100px);
    }
- }
+ } 
  /* main part  */
 main{
    display:inline-flex;
@@ -119,3 +185,76 @@ main{
 	animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 
  }
+
+
+ @media only screen and (max-width: 768px) {
+   * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  body {
+      background: #f5c63c;
+      color: #24293e;
+  }
+  
+  /* navbar */
+  nav {
+      margin: 15px;
+  }
+  
+  .logoicon {
+      font-size: 30px;
+      margin-top: 20px;
+      padding-left: 20px;
+  }
+  
+  .navcon {
+      margin-right: 20px;
+      word-spacing: 15px;
+      padding-top: 20px;
+  }
+  
+  .navcon a {
+      font-size: 18px;
+  }
+  
+  .toggle-btn {
+      margin-top: 10px;
+      margin-right: 10px;
+  }
+  
+  .toggle-label {
+      width: 3rem;
+      height: 1.5rem;
+  }
+  
+  .switch {
+      font-size: 14px;
+  }
+  
+  /* main part */
+  main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+  
+  .heroimg {
+      margin-left: 20px;
+      padding-right: 20px;
+  }
+  
+  .heroimg img {
+      max-width: 100%;
+      height: auto;
+  }
+  
+  .hero {
+      margin: 20px;
+      font-size: 30px;
+      animation: none; /* Remove animation on small screens */
+  }
+}
